@@ -1,0 +1,67 @@
+#include <iostream>
+#include <cmath>
+namespace vecmath {
+    class Vector{
+        public:
+            float x, y;
+            void mirror(){
+                x = -x;
+                y = -y;
+                };
+                
+            float len(){
+                float l;
+                l = sqrt(x*x + y*y);
+                return l;
+                };
+            
+            float ang(){
+                float alpha;
+                alpha = asin(x/(this -> len()))*(180/3.14);
+                return alpha;
+                };
+            
+            void report(){
+                using namespace std;
+                cout << " X: " << x << " Y: " << y << '\n';
+                this -> mirror();
+                cout << " Mirrored: X: " << x << " Y: " << y << '\n';
+                this -> mirror();
+                cout << " Lenght: " << this -> len() << '\n';
+                cout << " Angle: " << this -> ang() << '\n';
+                };
+            
+            
+            Vector(double a = 1, double b = 1){
+                x = a;
+                y = b;
+                };
+    
+            ~Vector(){std::cout <<"Vector annigilatied\n";}
+    };
+ }
+ 
+ 
+ 
+ 
+ 
+ Программа
+ 
+ 
+ 
+ #include <iostream>
+#include "vectors.h"
+using namespace std;
+
+int main()
+{
+    using namespace vecmath;
+    Vector vec[5] = {{3, 3}, {1, -1}, {-4, 2}, {-3, -1}, {12.3, -0.9}};
+    Vector *p = vec;
+    for (int i = 0; i < 5; i++){
+        p -> report();
+        p++;
+    }
+
+    return 0;
+}
