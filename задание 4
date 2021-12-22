@@ -1,0 +1,52 @@
+Библиотека
+#include <iostream>
+using namespace std;
+class Group{
+    //
+public:    
+    int girl;
+    int boy;
+    
+    int total();
+    
+    Group(int a = 0, int b=0){
+        girl = x;
+        boy = y;
+    }
+    
+    
+    ~Group(){cout <<"Group was denied\n";}
+};
+
+int Group::total(){
+    return girl+boy;
+    }
+    
+    
+    
+    
+    программа
+    
+    
+    #include <iostream>
+#include "gruppa.h"
+using namespace std;
+
+Group SummGroups(Group x, Group y){
+    Group c;
+    c.girl = x.girl + y.girl; 
+    c.boy = x.boy + y.boy;
+    return c;
+} 
+
+int main()
+{
+    Group group1(12, 13), group2(14,8);    // объявление двух групп
+    cout << group1.girl << "\n";    // число девушек
+    cout << group1.boy << "\n";    // число юношей
+    cout << group1.total() << "\n";    // число учащихся первой группы
+    cout << group2.total() << "\n";    // число учащихся второй группы
+    cout << SummGroups(group1, group2).total() << "\n";    // общее число
+
+    return 0;
+}
